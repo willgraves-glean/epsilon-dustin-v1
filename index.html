@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Place this index.html at the repository root for GitHub/Vercel static hosting. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glean × Epsilon — Executive Brief</title>
+  <meta name="description" content="How Glean's enterprise work AI platform can help Epsilon accelerate identity, retail media, and first-party data initiatives with secure, governed AI.">
+  <meta property="og:title" content="Glean × Epsilon — Executive Brief">
+  <meta property="og:description" content="Tailored executive overview of how Glean supports Epsilon's identity, retail media, and first-party data strategy with governed, context-rich AI.">
+  <meta property="og:type" content="website">
+  <style>
+    :root {
+      --primary: #0b4f6c;
+      --primary-light: #e6f0f5;
+      --accent: #f97316;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --bg: #f9fafb;
+      --card-bg: #ffffff;
+      --border-subtle: #e5e7eb;
+      --max-width: 960px;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #e0f2fe 0, #f9fafb 45%, #f3f4f6 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header.hero {
+      background: linear-gradient(135deg, #0b4f6c, #1d4ed8);
+      color: #f9fafb;
+      border-radius: var(--radius-lg);
+      padding: 28px 24px 24px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .hero-main {
+      flex: 1 1 220px;
+    }
+
+    .hero-kicker {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 6px;
+    }
+
+    .hero-title {
+      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      margin: 0 0 4px;
+      font-weight: 650;
+    }
+
+    .hero-subtitle {
+      margin: 0 0 14px;
+      font-size: 0.98rem;
+      max-width: 34rem;
+      color: rgba(249, 250, 251, 0.88);
+    }
+
+    .hero-meta {
+      font-size: 0.88rem;
+      color: rgba(249, 250, 251, 0.8);
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.28);
+      font-size: 0.78rem;
+      margin-top: 6px;
+    }
+
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.3);
+    }
+
+    .hero-side {
+      flex: 0 0 220px;
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .hero-card {
+      background: rgba(15, 23, 42, 0.26);
+      border-radius: var(--radius-md);
+      padding: 10px 12px;
+      font-size: 0.78rem;
+    }
+
+    .hero-metric {
+      font-size: 1.45rem;
+      font-weight: 650;
+    }
+
+    .hero-metric-label {
+      font-size: 0.78rem;
+      opacity: 0.9;
+    }
+
+    main {
+      margin-top: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 860px) {
+      main {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header.hero {
+        padding: 22px 18px 18px;
+      }
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin: 0 0 8px;
+    }
+
+    h3 {
+      font-size: 1.02rem;
+      margin: 10px 0 6px;
+    }
+
+    p {
+      margin: 0 0 8px;
+      font-size: 0.94rem;
+      color: var(--text-main);
+    }
+
+    .muted {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      padding: 14px 14px 12px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.02);
+    }
+
+    .card + .card {
+      margin-top: 10px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 6px 0 6px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      font-size: 0.93rem;
+      color: var(--text-main);
+    }
+
+    .layout-span-2 {
+      grid-column: 1 / -1;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      background: #f9fafb;
+    }
+
+    .kpi-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .kpi {
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: var(--primary-light);
+      border: 1px solid rgba(15, 23, 42, 0.04);
+    }
+
+    .kpi-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 2px;
+    }
+
+    .kpi-value {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .subgrid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .subgrid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 6px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #ecfdf3;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+      margin-left: 6px;
+    }
+
+    .cta-section {
+      text-align: center;
+      margin-top: 10px;
+      padding: 18px 16px 4px;
+      border-radius: var(--radius-lg);
+      background: radial-gradient(circle at top left, #eff6ff 0, #dbeafe 35%, #eff6ff 100%);
+      border: 1px solid #bfdbfe;
+    }
+
+    .cta-title {
+      font-size: 1.02rem;
+      margin: 0 0 6px;
+    }
+
+    .cta-text {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: none;
+      background: #f97316;
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.93rem;
+      text-decoration: none;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+      transition: transform 0.08s ease-out, box-shadow 0.08s ease-out, background 0.12s ease-out;
+    }
+
+    .cta-button:focus-visible {
+      outline: 3px solid #f97316;
+      outline-offset: 3px;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.22);
+      background: #fb923c;
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.18);
+    }
+
+    footer {
+      margin-top: 18px;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: left;
+    }
+
+    footer p {
+      margin: 0 0 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="hero" aria-labelledby="hero-title">
+      <div class="hero-main">
+        <div class="hero-kicker">Executive brief &mdash; Glean × Epsilon</div>
+        <h1 id="hero-title" class="hero-title">Safer, smarter AI for identity, retail media, and first‑party journeys</h1>
+        <p class="hero-subtitle">
+          How Glean can serve as Epsilon&rsquo;s secure work AI layer &mdash; powering AI Brain, PublicisGPT, CORE ID, and retail media teams with governed, permission‑aware enterprise context.
+        </p>
+        <div class="hero-meta">
+          For senior leaders across <strong>identity &amp; data</strong>, <strong>retail media</strong>, and <strong>AI transformation</strong> at Epsilon.
+          <div class="hero-pill" aria-label="Recommended next step">
+            <span class="hero-pill-dot" aria-hidden="true"></span>
+            <span>Recommended: 60–90 minute joint working session with Glean &amp; WWT</span>
+          </div>
+        </div>
+      </div>
+      <aside class="hero-side" aria-label="At-a-glance impact">
+        <div class="hero-card" aria-label="Representative impact metrics">
+          <div class="hero-metric">110 hours</div>
+          <div class="hero-metric-label">Time savings per employee per year with Glean, based on customer benchmarks.</div>
+          <p class="muted" style="margin-top:8px;">
+            In a recent Forrester TEI study, 93% of employees in the composite enterprise were active Glean users after two years.
+          </p>
+        </div>
+        <div class="hero-card" aria-label="Epsilon strategic themes">
+          <div class="hero-metric" style="font-size:0.95rem; margin-bottom:4px;">Aligned to four Epsilon priorities</div>
+          <div class="hero-metric-label">Global identity, retail &amp; commerce media, first‑party journeys, and AI‑driven transformation.</div>
+        </div>
+      </aside>
+    </header>
+
+    <main>
+      <section aria-labelledby="what-is-glean">
+        <div class="card">
+          <h2 id="what-is-glean">What is Glean</h2>
+          <h3>Work AI that works across your enterprise</h3>
+          <p>
+            Glean is a <strong>work AI platform</strong> that combines enterprise search, an AI assistant, and reusable agents on top of a deep
+            <strong>enterprise context layer</strong> &mdash; securely connecting to 100+ systems to index documents, data, people, and processes with full permissions.
+          </p>
+          <p>
+            Employees use Glean to <strong>find and understand information</strong>, <strong>create and summarize content</strong>, and <strong>automate workflows</strong>, all grounded in live enterprise data and auditable citations.
+          </p>
+          <div class="pill-row" aria-label="Example connected systems">
+            <span class="pill">Google Workspace</span>
+            <span class="pill">Microsoft 365</span>
+            <span class="pill">Salesforce</span>
+            <span class="pill">Jira &amp; Confluence</span>
+            <span class="pill">Slack / Teams</span>
+            <span class="pill">Git &amp; code repos</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2 id="tailored-value">Tailored value for Epsilon</h2>
+          <h3>1. Strengthen the CORE ID &amp; Lotame backbone without increasing risk</h3>
+          <ul>
+            <li>Give identity, data platform, and privacy teams a <strong>single, permission‑aware search and AI assistant</strong> across design docs, runbooks, incident reports, DPIAs, and processing terms, so decisions are reusable instead of rediscovered.</li>
+            <li>Shorten onboarding for engineers and data scientists working on CORE ID, Lotame integration, and PeopleCloud by packaging role‑based Collections and self‑serve Q&amp;A on schemas, match logic, and privacy rules.</li>
+            <li>Expose a governed <strong>work‑graph retrieval layer</strong> to AI Brain and PublicisGPT, avoiding bespoke RAG infrastructure for each internal AI project.</li>
+          </ul>
+
+          <h3>2. Make retail &amp; commerce media execution repeatable globally</h3>
+          <ul>
+            <li>Give commercial and ops teams a 360° internal view of each retailer or brand (contracts, playbooks, measurement readouts, bugs, and roadmaps) to cut unbilled prep time for pitches and QBRs.</li>
+            <li>Standardize execution with <strong>reusable Collections</strong> for retail media playbooks by vertical, region, and format, reducing variance across EMEA/APAC and North America.</li>
+            <li>Power an internal &ldquo;retail media copilot&rdquo; that can answer questions like &ldquo;What have we done for a similar grocer in France?&rdquo; grounded in verified internal docs.</li>
+          </ul>
+
+          <h3>3. Accelerate first‑party data and journey consulting</h3>
+          <ul>
+            <li>Act as an <strong>internal research assistant</strong> that automatically surfaces similar client programs, roadmaps, and outcome stories for PeopleCloud and first‑party data initiatives.</li>
+            <li>Help strategy and consulting teams synthesize best practices by vertical and region, keeping recommendations consistent across agencies and markets.</li>
+            <li>Provide a governed knowledge layer that PublicisGPT and Epsilon AI tools can call into so internal guidance on data, consent, and journeys is accurate and aligned to policy.</li>
+          </ul>
+
+          <h3>4. Support safe, efficient AI‑driven transformation across Publicis</h3>
+          <ul>
+            <li>Equip privacy, legal, security, and governance teams with <strong>admin‑level search and sensitive‑content reporting</strong> across key repositories to detect overshared PII or contractual artefacts before connecting more systems to AI.</li>
+            <li>Offer employees a <strong>single horizontal AI assistant</strong> and search experience rather than fragmented point bots per agency or tool, reducing gen‑AI sprawl and confusion.</li>
+            <li>Use curated Collections and announcements by region, agency, and role to streamline rollout of new AI policies, standards, and enablement content.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section aria-labelledby="outcomes-roi">
+        <div class="card">
+          <h2 id="outcomes-roi">Outcomes &amp; ROI</h2>
+          <p>
+            While the exact business case for Epsilon will be validated jointly, results from similar enterprises give a clear indication of potential impact.
+          </p>
+          <div class="kpi-row" aria-label="Representative outcome benchmarks">
+            <div class="kpi">
+              <div class="kpi-label">Productivity</div>
+              <div class="kpi-value">Up to 110 hours saved per user/year</div>
+              <p class="muted" style="margin-top:4px;">Across a typical knowledge worker population, this translates into meaningful capacity to reinvest in higher‑value work.</p>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Customer operations</div>
+              <div class="kpi-value">$20M+ annual savings</div>
+              <p class="muted" style="margin-top:4px;">One large telco cut call‑resolution time by 17 seconds in 30 days and achieved ~47% efficiency gains for 56,000 agents using Glean.</p>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Adoption</div>
+              <div class="kpi-value">93% employee adoption</div>
+              <p class="muted" style="margin-top:4px;">In an independent Forrester TEI analysis, the composite enterprise saw nearly universal adoption within two years.</p>
+            </div>
+          </div>
+          <p class="muted" style="margin-top:8px;">
+            For Epsilon, we expect value to concentrate in faster delivery of identity and retail media roadmaps, reduced unbilled prep and rework, and lower risk and cost for AI initiatives &mdash; with a quantified model to be co‑built once scope and deployment approach are defined.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2 id="why-glean">Why Glean &mdash; Differentiators</h2>
+          <div class="subgrid-3">
+            <div>
+              <h3>Governance &amp; security</h3>
+              <ul>
+                <li><strong>Permissions‑aware by design</strong>: Glean respects source‑system ACLs across 100+ connectors, with real‑time sync and identity/SSO integration.</li>
+                <li><strong>Protect+ AI security</strong>: Sensitive‑content detection and remediation, support for DLP providers, and controls for prompt injection, jailbreak, and toxic content.</li>
+                <li><strong>Enterprise deployment choices</strong>: Run Glean as SaaS or in a dedicated private‑cloud environment, aligning with Publicis&rsquo; security and regulatory posture.</li>
+                <li><strong>Centralized guardrails</strong>: Admin‑managed policies, audit‑ready logs, and governance for agents and assistant usage across the enterprise.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Deep enterprise context</h3>
+              <ul>
+                <li><strong>Enterprise Graph</strong> that understands data, apps, people, projects, and processes &mdash; not just files and folders.</li>
+                <li>Unified indexing of <strong>structured and unstructured data</strong> so AI can answer questions and take actions in &ldquo;systems of record&rdquo; as well as content stores.</li>
+                <li>Independent evaluations show <strong>Glean&rsquo;s answers are preferred significantly more often</strong> than generic &ldquo;company knowledge&rdquo; features in general‑purpose LLM tools, especially on multi‑system, multi‑step questions.</li>
+                <li>Battle‑tested RAG and relevance at global scale with large, regulated enterprises.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Openness &amp; flexibility</h3>
+              <ul>
+                <li><strong>LLM‑agnostic</strong> platform: choose the best model for each task across OpenAI, Anthropic, Google, NVIDIA, and open‑source options.</li>
+                <li>Support for <strong>skills and agents</strong> aligned to emerging industry standards, so Epsilon can reuse playbooks across providers.</li>
+                <li>Open APIs, MCP host and server support, and rich action libraries enable Epsilon to embed Glean context into existing AI tools (including PublicisGPT) instead of rebuilding plumbing.</li>
+                <li>Connectors and &ldquo;Glean in&rdquo; experiences for Slack, Teams, Salesforce, ServiceNow, Zendesk, and more ensure AI shows up where teams already work.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-span-2" aria-labelledby="proof-points">
+        <div class="card">
+          <h2 id="proof-points">Proof points</h2>
+          <div class="subgrid">
+            <div>
+              <h3>Selected customer outcomes</h3>
+              <ul>
+                <li><strong>Global telecommunications provider</strong> used Glean for its 56,000 frontline agents, cutting call‑resolution time by 17 seconds in 30 days and saving $20M+ annually through productivity gains.</li>
+                <li><strong>Global AI and GPU leader</strong> made Glean an enterprise standard in its internal GenAI platform, repurposing multiple engineering FTEs previously building search and RAG infrastructure.</li>
+                <li><strong>Global ride‑sharing platform</strong> replaced a low‑adoption internal search tool so employees no longer spent hours each week hopping across systems to find critical context.</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Independent validation</h3>
+              <ul>
+                <li><strong>Gartner Peer Insights Customers&rsquo; Choice 2024</strong> in the Insight Engines category, with high customer ratings for relevance and ease of deployment.</li>
+                <li><strong>Named a Leader</strong> in Gartner&rsquo;s Emerging Market Quadrant for generative AI work/knowledge applications.</li>
+                <li>Evaluations show human graders prefer Glean&rsquo;s enterprise answers roughly twice as often as those from generic LLM enterprise‑search features when they have a preference.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="layout-span-2" aria-labelledby="cta">
+        <div class="cta-section">
+          <h2 id="cta" style="margin-bottom:4px;">Call to action</h2>
+          <p class="cta-title">Co‑design Epsilon&rsquo;s work AI layer with Glean &amp; WWT</p>
+          <p class="cta-text">
+            Schedule a 60–90 minute working session to map CORE ID, Lotame, PeopleCloud, and retail media priorities to a phased Glean deployment, including a tailored business case and governance plan.
+          </p>
+          <a class="cta-button" href="mailto:will.graves@glean.com?subject=Epsilon%20×%20Glean%20working%20session&amp;body=Hi%20Will%2C%0A%0ALet%E2%80%99s%20schedule%20time%20to%20discuss%20a%20Glean%20pilot%20for%20Epsilon.%0A%0A%5BPlease%20add%20any%20context%20or%20availability%20here.%5D" aria-label="Email Will Graves to schedule a working session">
+            Email Will Graves to schedule a session
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>This page is intended as an external‑facing executive summary for Epsilon leadership. Figures cited are based on publicly shareable customer stories and benchmark studies; a detailed ROI model for Epsilon will be developed collaboratively.</p>
+      <p>Last updated: April 2026.</p>
+    </footer>
+  </div>
+</body>
+</html>
